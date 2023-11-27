@@ -1,4 +1,10 @@
-# this application used nest.js
+# this application used nest.js, Postgres and Redis
+<p align="center">
+  <a href="https://www.postgresql.org/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" width="200" alt="Postgresql Logo" /></a>
+</p>
+<p align="center">
+  <a href="https://redis.io/" target="blank"><img src="https://luizladeira.files.wordpress.com/2020/09/redis-1.png" width="200" alt="Redis Logo" /></a>
+</p>
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -25,7 +31,9 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+> [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+> [Link for Swagger Api](http://15.228.35.16/api#/)
 
 ## access directory
 
