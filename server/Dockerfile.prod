@@ -6,7 +6,7 @@ COPY . .
 COPY ./package.json ./package.json
 COPY ./.env.production ./.env
 
-RUN npm install --quiet --no-optional --no-fund --loglevel=error
+RUN yarn install --quiet --no-optional --no-fund --loglevel=error
 
 
 RUN npm run build
