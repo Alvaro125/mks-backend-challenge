@@ -41,11 +41,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         working-directory: ./server
-        run: yarn install --frozen-lockfile
+        run: npm install
       - name: Integration testing
         working-directory: ./server
         run: |
-          yarn test
+          npm test
         env:
           JWT_SECRET_KEY: "4UO2T0Q0YR29LLHCDQ2L68I4SR5YQU"
           SALT: "$2b$10$9dmwqrsTlnIiE5ZQgy2Aqu"
