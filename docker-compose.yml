@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    container_name: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  cache:
+    image: redis
+    environment:
+      REDIS_ARGS: "--requirepass password --user redis on >password ~* allcommands --user default off nopass nocommands"
+    ports:
+      - "8001:8001"
+      - "6380:6379"
+  api:
+    build:
+      context: ./server/
+      dockerfile: Dockerfile.prod
+    container_name: api-nest
+    ports:
+      - "80:3000"
+    volumes:
+      - ./server/src:/usr/src/api/src
+      - ./server/.env.production:/usr/src/api/.env
+      - ./server/node_modules:/usr/src/api/node_modules
+    depends_on:
+      - db
+      - cache
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: nest-pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin4
+    ports:
+      - '5050:80'
+    depends_on:
+      - db
